@@ -5,7 +5,7 @@ skills = [ (_,) for _ in (['Python', 'SQL', 'API', 'Discord'])]
 statuses = [ (_,) for _ in (['Prototip Oluşturma', 'Geliştirme Aşamasında', 'Tamamlandı', 'Güncellendi', 'Bırakılmış/Desteklenmiyor'])]
 
 class DB_Manager:
-    def _init_(self, database):
+    def __init__(self, database):
         self.database = database
 
     def create_tables(self):
@@ -122,7 +122,7 @@ WHERE project_name=? AND user_id=?
         self.__executemany(sql, [(skill_id, project_id)])
 
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     manager = DB_Manager(DATABASE)
     manager.create_tables()
     manager.default_insert()
